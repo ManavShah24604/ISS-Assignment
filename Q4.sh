@@ -1,31 +1,26 @@
 #!/bin/bash
 read -r line
-declare -a arr
 arr=(${line//,/ })
 
 echo "Array in original order"
 echo ${arr[*]}
-  
-number=${#arr[*]}
+n=${#arr[*]}
 
-let temp=0
-let i=0
-let j=0
-echo After Sorting
-for((i=1;i<number;i++))
-do 
-    for((j=1;j<i;j++))
+for ((it=0; it<n; it++))
+do
+    
+    for((j=0; j<n-i-1; j++))
     do
+    
         if [ ${arr[j]} -gt ${arr[$((j+1))]} ]
         then
-             temp=${arr[$((j+1))]}
-             arr[$((j+1))]=${arr[j]}
-             arr[j]=$temp
+            
+            temp=${arr[j]}
+            arr[$j]=${arr[$((j+1))]}  
+            arr[$((j+1))]=$temp
         fi
     done
 done
-for((i=1;i<=number;i++))
-do
-    echo ${arr[$i]}
-done
-echo "End of program"
+
+echo "Array in sorted order :"
+echo ${arr[*]}
