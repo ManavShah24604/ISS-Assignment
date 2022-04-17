@@ -8,7 +8,7 @@ for((i=$n - 1;i>=0;i--))
 do
 
   y=${str:i:1}   
-    y=$(echo "$y" | tr "0-9a-z" "1-9a-za")
+    y=$(echo "$y" | tr "0-9A-z" "1-9A-za")
    # let arr=`expr $arr + 1`
   
     echo -n "$y"
